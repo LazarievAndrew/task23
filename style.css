@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 10px;
+}
+
+table{
+    margin: 0 auto;
+}
+
+.square{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.square--red{
+    background-color: red;
+}
