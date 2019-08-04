@@ -1,30 +1,29 @@
+// Активный квадрат
 
-var activeElement = function () {  
+// создать 10 квадратов зеленого цвета
+// при клике по клику на любой из квадратов он выделяется красным цветом,
+// если один уже выделен красным, а кликнули по-другому,
+// то выделение с прошлого — снимается и ставится на тот, по котором кликнули
 
-    getReset();
-    activClass();
 
-};
+var redSquare;
 
-var activClass = function () {
-    
-    if (event.target.className == 'square'){
+squareList.onclick = function(event) {
 
-        event.target.classList.add ('square--red');
-        
+    var target = event.target; 
+  
+    if (target.tagName != 'TD') return;
+  
+    activClass(target); 
+  };
+
+  function activClass(td) {
+
+    if (redSquare) { 
+
+        redSquare.classList.remove('square--red');
     }
 
-};
-
-var getReset = function () {
-
-    var element = document.getElementsByClassName('square--red');
-
-    for (var i = 0; i < element.length; i++) {
-
-        element[i].classList.remove('square--red');
-
-    }
-}
-
-addEventListener ('click', activeElement);
+    redSquare = td;
+    redSquare.classList.add('square--red'); 
+  };
