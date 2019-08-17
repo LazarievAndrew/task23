@@ -5,26 +5,32 @@
 // если один уже выделен красным, а кликнули по-другому,
 // то выделение с прошлого — снимается и ставится на тот, по котором кликнули
 
-var redSquare;
 
- function getSquare(event) {
+function targetSquare () {
 
-    var target = event.target; 
-  
-    if (target.tagName != 'TD') return;
-  
-    activClass(target); 
-  };
+    var redSquare;
 
-  function activClass(td) {
+    function getSquare(event) {
+
+        var target = event.target; 
+
+        if (target.tagName != 'TD') return;
+
+        activClass(target); 
+    };
+
+    function activClass(td) {
 
     if (redSquare) { 
 
         redSquare.classList.remove('square--red');
     }
 
-    redSquare = td;
-    redSquare.classList.add('square--red'); 
-  };
+        redSquare = td;
+        redSquare.classList.add('square--red'); 
+    };
 
-  squareList.addEventListener ('click', getSquare);
+    return getSquare;
+};
+
+squareList.addEventListener ('click', targetSquare());

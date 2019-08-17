@@ -5,15 +5,16 @@
 // если один уже выделен красным, а кликнули по-другому,
 // то выделение с прошлого — снимается и ставится на тот, по котором кликнули
 
+function targetSquare () {
 
-var redSquare;
+  var redSquare;
 
-squareList.onclick = function(event) {
+  squareList.onclick = function(event) {
 
     var target = event.target; 
-  
+
     if (target.tagName != 'TD') return;
-  
+
     activClass(target); 
   };
 
@@ -27,3 +28,6 @@ squareList.onclick = function(event) {
     redSquare = td;
     redSquare.classList.add('square--red'); 
   };
+};
+
+targetSquare();
